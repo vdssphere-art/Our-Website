@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Coming Soon",
-  description: "A new website is coming soon.",
+  description: "A new website is coming soon from vds_sphere.",
 };
 
 export default function Home() {
