@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #05070d;
+}
+
+.coming-soon {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow: hidden;
+  color: #f8fbff;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 210, 255, 0.25), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(255, 62, 165, 0.22), transparent 28%),
+    linear-gradient(135deg, #05070d 0%, #101624 50%, #05070d 100%);
+}
+
+.coming-soon::before {
+  position: absolute;
+  inset: -20%;
+  content: "";
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle, black 0%, transparent 70%);
+  animation: drift 18s linear infinite;
+}
+
+.coming-soon__content {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 920px);
+  text-align: center;
+  animation: rise-in 1.1s ease both;
+}
+
+.coming-soon__eyebrow {
+  margin: 0 0 18px;
+  color: rgba(248, 251, 255, 0.72);
+  font-size: clamp(0.78rem, 2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.coming-soon__title {
+  margin: 0;
+  color: transparent;
+  background: linear-gradient(90deg, #ffffff, #77f2ff, #ff8acb, #ffffff);
+  background-size: 220% auto;
+  background-clip: text;
+  font-size: clamp(3.4rem, 12vw, 10rem);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.coming-soon__glow {
+  position: absolute;
+  width: 42vmax;
+  height: 42vmax;
+  border-radius: 999px;
+  filter: blur(70px);
+  opacity: 0.36;
+  animation: float 9s ease-in-out infinite alternate;
+}
+
+.coming-soon__glow--one {
+  top: -18vmax;
+  left: -10vmax;
+  background: #00d2ff;
+}
+
+.coming-soon__glow--two {
+  right: -14vmax;
+  bottom: -20vmax;
+  background: #ff3ea5;
+  animation-delay: -3s;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(6vw, -4vh, 0) scale(1.12);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(72px, 72px, 0);
+  }
+}
