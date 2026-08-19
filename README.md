@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VDS_SPHERE — Freelance Agency Website
 
-## Getting Started
+Welcome to **VDS_SPHERE**, a modern, modular, and scalable static website built for a digital freelance agency using **Next.js (App Router)**, **Tailwind CSS**, and **TypeScript**.
 
-First, run the development server:
+This project is structured for high scalability, clean code separation, and centralized typography management.
 
+---
+
+## 🚀 Quick Start Guide
+
+### Prerequisites
+- Node.js 18.x or higher
+- npm (or yarn / pnpm / bun)
+
+### Development
+To launch the interactive local development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
+
+### Build & Static Export
+This project is pre-configured for pure **Static Site Export** (`output: "export"` in `next.config.ts`).
+To generate the static production build:
+```bash
+npm run build
+```
+The compiled HTML, CSS, and JS static bundle will be exported to the `./out` directory, ready to be deployed to any static host (GitHub Pages, Vercel, Netlify, Cloudflare Pages, AWS S3, etc.).
+
+---
+
+## 📁 Project Architecture & Structure
+
+The codebase separates global primitives, section components, layout elements, and pages into distinct folders to ensure `page.tsx` remains clean, un-cluttered, and easy to maintain.
+
+```
+VDS-Website/
+├── next.config.ts            # Next.js static export configuration
+├── package.json              # Dependencies and scripts
+├── public/                   # Static assets (images, icons, SVGs)
+├── src/
+│   ├── app/
+│   │   ├── globals.css       # Global styles, CSS variables, & typography utility classes
+│   │   ├── layout.tsx        # Root HTML layout & VDS_SPHERE metadata
+│   │   └── page.tsx          # Main landing page (composes modular section components)
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx    # Sticky header navigation
+│   │   │   └── Footer.tsx    # Agency footer
+│   │   ├── ui/
+│   │   │   └── Typography.tsx # Global Heading, Subheading & SectionHeader primitives
+│   │   └── sections/
+│   │       ├── HeroSection.tsx       # Hero section with primary heading
+│   │       ├── AboutSection.tsx      # Agency overview & key pillars
+│   │       ├── ServicesSection.tsx   # Freelance services offerings
+│   │       ├── PortfolioSection.tsx  # Featured client projects
+│   │       ├── ContactSection.tsx    # Inquiry CTA form
+│   │       └── index.ts              # Section barrel exports
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Global Typography System (Headings & Subheadings)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project includes a **centralized typography system**. If you change a heading or subheading style value in one place, it automatically reflects across every single page and section on the entire website!
 
-## Learn More
+### 1. Centralized Typography Components (`src/components/ui/Typography.tsx`)
+Use these reusable React components across your sections:
 
-To learn more about Next.js, take a look at the following resources:
+```tsx
+import { Heading, Subheading, SectionHeader } from "@/components/ui/Typography";
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+// 1. Primary XL Heading (h1) with optional gradient
+<Heading level={1} size="xl" gradient>
+  VDS_SPHERE Freelance Agency
+</Heading>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+// 2. Secondary Heading (h2)
+<Heading level={2} size="lg">
+  Our Freelance Services
+</Heading>
 
-## Deploy on Vercel
+// 3. Subheading
+<Subheading>
+  We craft high-performance web applications and digital experiences.
+</Subheading>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+// 4. Complete Section Header (badge + title + subtitle)
+<SectionHeader
+  badge="Featured Work"
+  title="Recent Projects"
+  subtitle="Explore our latest software solutions."
+/>
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. How to Modify Heading & Subheading Styles Globally
+
+#### Option A: Editing CSS Custom Variables & Classes (`src/app/globals.css`)
+In `src/app/globals.css`, global styles are controlled by CSS variables and utility classes:
+- `--vds-heading-color`: Primary heading text color (e.g. `#ffffff`)
+- `--vds-subheading-color`: Subheading text color (e.g. `#9ca3af`)
+- `.vds-heading-xl`, `.vds-heading-lg`, `.vds-heading-md`: Control font sizes, line heights, font weights, and tracking.
+- `.vds-subheading`: Controls subheading font size and color.
+
+#### Option B: Editing Component Defaults (`src/components/ui/Typography.tsx`)
+Modifying class names or styling rules inside `src/components/ui/Typography.tsx` instantly updates all headings sitewide.
+
+---
+
+## 🧩 How to Add New Landing Page Sections
+
+To maintain scalability without cluttering `src/app/page.tsx`:
+
+1. **Create your section component** inside `src/components/sections/`:
+   ```tsx
+   // src/components/sections/TestimonialsSection.tsx
+   import React from "react";
+   import { Heading, Subheading, SectionHeader } from "../ui/Typography";
+
+   export const TestimonialsSection: React.FC = () => {
+     return (
+       <section className="py-20">
+         <SectionHeader title="Client Reviews" subtitle="What our clients say about VDS_SPHERE" />
+         {/* ... content ... */}
+       </section>
+     );
+   };
+   ```
+
+2. **Add to barrel export** in `src/components/sections/index.ts`:
+   ```ts
+   export { TestimonialsSection } from "./TestimonialsSection";
+   ```
+
+3. **Import in `src/app/page.tsx`**:
+   ```tsx
+   import { TestimonialsSection } from "@/components/sections";
+
+   // Inside Home component:
+   <TestimonialsSection />
+   ```
+
+---
+
+## 💻 Tech Stack Summary
+- **Framework**: Next.js 16 (App Router)
+- **Export Mode**: Static Export (`output: "export"`)
+- **Styling**: Tailwind CSS 4
+- **Language**: TypeScript
+- **Icons / Design**: CSS Gradients, Glassmorphism, & Responsive Layouts

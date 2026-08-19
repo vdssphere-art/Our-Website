@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #090d16;
+    --foreground: #f3f4f6;
+
+    /* Global Typography Styles */
+    --vds-heading-color: #ffffff;
+    --vds-heading-accent: #3b82f6; /* Global primary accent color */
+    --vds-subheading-color: #9ca3af; /* Muted gray for subheadings */
+
+    --vds-font-heading: var(--font-geist-sans), sans-serif;
+    --vds-font-subheading: var(--font-geist-sans), sans-serif;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--vds-font-subheading);
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Global Heading & Subheading Utility Classes */
+/* Developers can modify these global utility classes or update typography components */
+
+.vds-heading-xl {
+  font-family: var(--vds-font-heading);
+  color: var(--vds-heading-color);
+  font-weight: 800;
+  font-size: 2.5rem; /* 40px */
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 640px) {
+  .vds-heading-xl {
+    font-size: 3.5rem; /* 56px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .vds-heading-xl {
+    font-size: 4.25rem; /* 68px */
+  }
+}
+
+.vds-heading-lg {
+  font-family: var(--vds-font-heading);
+  color: var(--vds-heading-color);
+  font-weight: 700;
+  font-size: 2rem; /* 32px */
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .vds-heading-lg {
+    font-size: 2.5rem; /* 40px */
+  }
+}
+
+.vds-heading-md {
+  font-family: var(--vds-font-heading);
+  color: var(--vds-heading-color);
+  font-weight: 600;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.3;
+}
+
+.vds-subheading {
+  font-family: var(--vds-font-subheading);
+  color: var(--vds-subheading-color);
+  font-weight: 400;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .vds-subheading {
+    font-size: 1.25rem; /* 20px */
+  }
 }
