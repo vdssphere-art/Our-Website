@@ -3,7 +3,7 @@ import { Heading, Subheading, SectionHeader } from "../ui/Typography";
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-20 md:py-28 border-b border-gray-800/40 bg-[#070b13]/50">
+    <section id="about" className="py-20 md:py-28 border-b border-slate-200 bg-slate-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="About VDS_SPHERE"
@@ -12,8 +12,8 @@ export const AboutSection: React.FC = () => {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
-          <div className="p-6 rounded-xl bg-gray-900/40 border border-gray-800">
-            <Heading level={3} size="md" className="mb-2 text-blue-400">
+          <div className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm">
+            <Heading level={3} size="md" className="mb-2 text-blue-600">
               01. Rapid Execution
             </Heading>
             <Subheading className="text-sm">
@@ -21,8 +21,8 @@ export const AboutSection: React.FC = () => {
             </Subheading>
           </div>
 
-          <div className="p-6 rounded-xl bg-gray-900/40 border border-gray-800">
-            <Heading level={3} size="md" className="mb-2 text-blue-400">
+          <div className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm">
+            <Heading level={3} size="md" className="mb-2 text-blue-600">
               02. Clean Architecture
             </Heading>
             <Subheading className="text-sm">
@@ -30,8 +30,8 @@ export const AboutSection: React.FC = () => {
             </Subheading>
           </div>
 
-          <div className="p-6 rounded-xl bg-gray-900/40 border border-gray-800">
-            <Heading level={3} size="md" className="mb-2 text-blue-400">
+          <div className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm">
+            <Heading level={3} size="md" className="mb-2 text-blue-600">
               03. Direct Communication
             </Heading>
             <Subheading className="text-sm">

@@ -17,8 +17,8 @@ export default function Home() {
       {/* Main Landing Page Content divided into modular sections */}
       <main className="flex-grow">
         <HeroSection />
-        <AboutSection />
         <ServicesSection />
+        <AboutSection />
         <PortfolioSection />
         <ContactSection />
       </main>

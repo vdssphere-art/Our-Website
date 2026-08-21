@@ -15,38 +15,38 @@ export const ContactSection: React.FC = () => {
 
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="mt-8 p-8 rounded-2xl bg-gray-900/40 border border-gray-800 text-left space-y-6 max-w-xl mx-auto shadow-2xl"
+          className="mt-8 p-8 rounded-2xl bg-white border border-slate-200 text-left space-y-6 max-w-xl mx-auto shadow-lg"
         >
           <div>
-            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Your Name
             </label>
             <input
               type="text"
               placeholder="e.g. John Doe"
-              className="w-full px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Email Address
             </label>
             <input
               type="email"
               placeholder="john@example.com"
-              className="w-full px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Project Details
             </label>
             <textarea
               rows={4}
               placeholder="Tell us about your project requirements..."
-              className="w-full px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors resize-none"
             />
           </div>
 

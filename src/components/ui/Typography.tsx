@@ -38,7 +38,7 @@ export const Heading: React.FC<HeadingProps> = ({
   };
 
   const gradientClass = gradient
-    ? "bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent"
+    ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent"
     : "";
 
   return (
@@ -102,7 +102,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       className={`flex flex-col max-w-3xl mb-12 ${alignClasses[align]} ${className}`.trim()}
     >
       {badge && (
-        <span className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-950/60 border border-blue-800/50 rounded-full mb-4 inline-block">
+        <span className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 rounded-full mb-4 inline-block">
           {badge}
         </span>
       )}

@@ -2,13 +2,13 @@
 
 @layer base {
   :root {
-    --background: #090d16;
-    --foreground: #f3f4f6;
+    --background: #f9f6f1;
+    --foreground: #1e293b;
 
     /* Global Typography Styles */
-    --vds-heading-color: #ffffff;
-    --vds-heading-accent: #3b82f6; /* Global primary accent color */
-    --vds-subheading-color: #9ca3af; /* Muted gray for subheadings */
+    --vds-heading-color: #0f172a;
+    --vds-heading-accent: #2563eb; /* Global primary accent color */
+    --vds-subheading-color: #64748b; /* Muted gray for subheadings */
 
     --vds-font-heading: var(--font-geist-sans), sans-serif;
     --vds-font-subheading: var(--font-geist-sans), sans-serif;
@@ -81,4 +81,104 @@
   .vds-subheading {
     font-size: 1.25rem; /* 20px */
   }
+}
+
+/* ── Hero Giant Typography ── */
+.hero-text-giant {
+  font-family: var(--vds-font-heading);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 11vw, 13rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.hero-text-outlined {
+  color: transparent;
+  -webkit-text-stroke: 2px #000;
+  transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-text-stroke-color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Applied to top text on hover — transitions from filled to outlined */
+.hero-text-outlined-active {
+  color: transparent !important;
+  -webkit-text-stroke: 2px #000;
+}
+
+@media (min-width: 640px) {
+  .hero-text-outlined,
+  .hero-text-outlined-active {
+    -webkit-text-stroke-width: 2.5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-text-outlined,
+  .hero-text-outlined-active {
+    -webkit-text-stroke-width: 3px;
+  }
+}
+
+/* ── Marquee / Client Strip ── */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Floating Animation for Hero Image ── */
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+.hero-float {
+  animation: float 6s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.hero-float-text {
+  animation: float-subtle 5s ease-in-out infinite;
+  will-change: transform;
 }

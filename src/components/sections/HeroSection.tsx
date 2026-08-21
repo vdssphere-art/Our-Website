@@ -1,45 +1,86 @@
-import React from "react";
-import { Heading, Subheading } from "../ui/Typography";
+"use client";
+
+import React, { useState } from "react";
+
+const clients = [
+  { name: "Zirise", logo: "/images/logos/zirise.png" },
+  { name: "Vayumandal Innovations", logo: "/images/logos/vayumandal.png" },
+  { name: "AR Legal", logo: "/images/logos/arlegal.png" },
+  { name: "Logixjunction", logo: "/images/logos/logixjunction.jpeg" },
+];
 
 export const HeroSection: React.FC = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  /* Duplicate client list for seamless infinite scroll */
+  const marqueeClients = [...clients, ...clients, ...clients, ...clients, ...clients];
+
   return (
-    <section className="relative pt-24 pb-20 md:pt-36 md:pb-32 overflow-hidden border-b border-gray-800/40">
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none -z-10" />
+    <section className="relative pt-8 pb-32 md:pt-12 md:pb-44 xl:pb-70 overflow-clip select-none bg-[#f5efe6]">
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Category Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/70 border border-blue-800/60 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-8">
-          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-          VDS_SPHERE Freelance Digital Agency
+      {/* Floating Robotic Hand — left side, palm below heading */}
+      <div className="absolute left-0 top-1/2 -translate-y-[40%] pointer-events-none z-0 hidden md:block">
+        <img
+          src="/images/robotic-hand.png"
+          alt=""
+          aria-hidden="true"
+          className="hero-float w-[500px] lg:w-[1000px] xl:w-1500 h-auto mix-blend-multiply"
+          draggable={false}
+        />
+      </div>
+
+      {/* ── Scrolling Client Strip — above headings ── */}
+      <div className="relative z-10 mb-8 md:mb-12 flex justify-center">
+        <div className="w-[90%] sm:w-[70%] lg:w-[50%] py-4 marquee-container">
+          <div className="marquee-track items-center gap-10 sm:gap-14">
+            {marqueeClients.map((client, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 shrink-0 px-2"
+              >
+                {/* Client Logo */}
+                <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain mix-blend-multiply"
+                    draggable={false}
+                  />
+                </div>
+                {/* Client Name */}
+                <span className="text-lg font-semibold text-slate-700 whitespace-nowrap tracking-tight">
+                  {client.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
 
-        {/* Global Primary Heading */}
-        <Heading level={1} size="xl" gradient className="mb-6">
-          Architecting High-Performance Web & Mobile Solutions
-        </Heading>
+      {/* Giant Typography Block */}
+      <div className="relative z-10 max-w-[95vw] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Line 1 — filled black by default, outlined (stroked) on hover */}
+        <h1
+          className={`hero-text-giant text-black ${isHovered ? "hero-text-outlined-active" : ""
+            }`}
+        >
+          Digital Agency
+        </h1>
 
-        {/* Global Subheading */}
-        <Subheading className="max-w-2xl mx-auto mb-10 text-gray-300">
-          We are a team of expert freelance engineers and designers delivering
-          tailor-made digital products, high-scalability backend APIs, and modern frontends.
-        </Subheading>
-
-        {/* Call To Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#contact"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-bold text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/30 active:scale-95"
-          >
-            Start a Project
-          </a>
-          <a
-            href="#services"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-semibold text-gray-300 bg-gray-900 hover:bg-gray-800 border border-gray-700 transition-all active:scale-95"
-          >
-            Explore Services
-          </a>
-        </div>
+        {/* Line 2 — outlined by default, filled black on hover */}
+        <p
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className={`hero-text-giant hero-text-outlined cursor-default mt-1 sm:mt-2 ${isHovered ? "!text-black" : ""
+            }`}
+          style={
+            isHovered
+              ? { WebkitTextStrokeColor: "transparent" }
+              : undefined
+          }
+        >
+          & Developers
+        </p>
       </div>
     </section>
   );

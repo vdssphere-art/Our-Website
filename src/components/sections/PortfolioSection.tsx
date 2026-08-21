@@ -21,7 +21,7 @@ const projects = [
 
 export const PortfolioSection: React.FC = () => {
   return (
-    <section id="portfolio" className="py-20 md:py-28 border-b border-gray-800/40">
+    <section id="portfolio" className="py-20 md:py-28 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Featured Projects"
@@ -33,20 +33,20 @@ export const PortfolioSection: React.FC = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group rounded-2xl bg-gray-900/60 border border-gray-800 p-6 flex flex-col justify-between hover:border-blue-500/50 transition-all"
+              className="group rounded-2xl bg-white border border-slate-200 p-6 flex flex-col justify-between hover:border-blue-400 transition-all shadow-sm hover:shadow-md"
             >
               <div>
-                <span className="text-xs font-semibold text-blue-400 bg-blue-950/60 px-3 py-1 rounded-full border border-blue-800/40 inline-block mb-4">
+                <span className="text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 inline-block mb-4">
                   {project.category}
                 </span>
-                <Heading level={3} size="md" className="mb-2 group-hover:text-blue-400 transition-colors">
+                <Heading level={3} size="md" className="mb-2 group-hover:text-blue-600 transition-colors">
                   {project.title}
                 </Heading>
                 <Subheading className="text-sm">
                   {project.description}
                 </Subheading>
               </div>
-              <div className="mt-6 pt-4 border-t border-gray-800/60 flex items-center text-xs font-semibold text-blue-400 group-hover:translate-x-1 transition-transform">
+              <div className="mt-6 pt-4 border-t border-slate-200 flex items-center text-xs font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">
                 View Case Study &rarr;
               </div>
             </div>
