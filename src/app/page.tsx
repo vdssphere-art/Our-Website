@@ -3,10 +3,13 @@ import { Footer } from "@/components/layout/Footer";
 import {
   HeroSection,
   ServicesSection,
+  ProblemSection,
   AboutSection,
   PortfolioSection,
   ContactSection,
+  ProjectGallery
 } from "@/components/sections";
+
 
 export default function Home() {
   return (
@@ -18,8 +21,9 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <ServicesSection />
+        <ProblemSection />
         <AboutSection />
-        <PortfolioSection />
+        <ProjectGallery />
         <ContactSection />
       </main>
 

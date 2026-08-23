@@ -61,18 +61,18 @@ export const ServicesSection: React.FC = () => {
   const [activeHoverId, setActiveHoverId] = useState<string | null>(null);
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-slate-100 text-slate-900 border-y border-slate-200">
+    <section id="services" className="py-20 md:py-32 bg-black text-white border-y border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col max-w-3xl mb-10 text-center items-center mx-auto">
-          <span className="px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-100 border border-blue-200 rounded-full mb-3 shadow-sm">
+        <div className="flex flex-col max-w-3xl mb-12 text-center items-center mx-auto">
+          <span className="px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white bg-neutral-800 border border-neutral-700 rounded-full mb-4 shadow-sm">
             Services Showcase
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
             End-to-End Solutions
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl font-normal">
-            Normal images when idle — hover over any card to reveal title and project details.
+          <p className="text-base sm:text-lg text-neutral-400 max-w-2xl font-normal">
+            Explore our specialized development, design, and growth capabilities. Hover over any service to view key details.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export const ServicesSection: React.FC = () => {
                   key={service.id}
                   onMouseEnter={() => setActiveHoverId(service.id)}
                   onMouseLeave={() => setActiveHoverId(null)}
-                  className="group relative h-[280px] sm:h-[300px] rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl"
+                  className="group relative h-[280px] sm:h-[300px] rounded-xl overflow-hidden shadow-md border border-neutral-800 bg-neutral-900 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:border-neutral-700"
                 >
                   {/* Clean Normal Image */}
                   <img
@@ -145,7 +145,7 @@ export const ServicesSection: React.FC = () => {
                   key={featuredService.id}
                   onMouseEnter={() => setActiveHoverId(featuredService.id)}
                   onMouseLeave={() => setActiveHoverId(null)}
-                  className="group relative h-[380px] sm:h-[440px] lg:h-[616px] rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl"
+                  className="group relative h-[380px] sm:h-[440px] lg:h-[616px] rounded-xl overflow-hidden shadow-md border border-neutral-800 bg-neutral-900 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:border-neutral-700"
                 >
                   {/* Clean Normal Image */}
                   <img

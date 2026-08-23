@@ -2,13 +2,13 @@
 
 @layer base {
   :root {
-    --background: #f9f6f1;
-    --foreground: #1e293b;
+    --background: #ffffff;
+    --foreground: #000000;
 
     /* Global Typography Styles */
-    --vds-heading-color: #0f172a;
-    --vds-heading-accent: #2563eb; /* Global primary accent color */
-    --vds-subheading-color: #64748b; /* Muted gray for subheadings */
+    --vds-heading-color: #000000;
+    --vds-heading-accent: #000000; /* Global primary accent color */
+    --vds-subheading-color: #4b5563; /* Dark gray for subheadings */
 
     --vds-font-heading: var(--font-geist-sans), sans-serif;
     --vds-font-subheading: var(--font-geist-sans), sans-serif;

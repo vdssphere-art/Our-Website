@@ -16,15 +16,15 @@ export const HeroSection: React.FC = () => {
   const marqueeClients = [...clients, ...clients, ...clients, ...clients, ...clients];
 
   return (
-    <section className="relative pt-8 pb-32 md:pt-12 md:pb-44 xl:pb-70 overflow-clip select-none bg-[#f5efe6]">
+    <section className="relative pt-8 pb-32 md:pt-12 md:pb-44 xl:pb-70 overflow-clip select-none bg-white">
 
       {/* Floating Robotic Hand — left side, palm below heading */}
-      <div className="absolute left-0 top-1/2 -translate-y-[40%] pointer-events-none z-0 hidden md:block">
+      <div className="absolute left-0 top-[55%] -translate-y-[15%] pointer-events-none z-0 hidden md:block">
         <img
           src="/images/robotic-hand.png"
           alt=""
           aria-hidden="true"
-          className="hero-float w-[500px] lg:w-[1000px] xl:w-1500 h-auto mix-blend-multiply"
+          className="hero-float w-[450px] lg:w-[850px] xl:w-[1200px] h-auto mix-blend-multiply opacity-90"
           draggable={false}
         />
       </div>
